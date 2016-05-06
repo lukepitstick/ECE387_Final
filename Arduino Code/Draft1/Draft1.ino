@@ -16,9 +16,12 @@ const int missDuration = 100;
 int timeOn = 1000;
 int highscore = 0;
 int score = 0;
+int timeToStart[] = {timeOn*(2/3),timeOn*(4/3),timeOn*(6/3)};
+int startTime[] = {0,0,0};
 int timeAlive[] = {0,0,0};
 int missed = 0;
 int frog[] = {-1,-1,-1};
+boolean setStartTime[] = {true,true,true};
 boolean setTime[] = {true,false,false};
 boolean touch[] = {false,false,false,false,false,false};
 
@@ -69,10 +72,18 @@ void loop () {
 
   
   if(setTime[0]) {
-    frog[0] = random(0,5);
-    digitalWrite(led[frog[0]],HIGH);
-    timeAlive[0] = millis();
-    setTime[0] = false;
+    if(setStartTime[0]) {
+      startTime[0] = millis();
+      setStartTime[0] = false;
+    }
+    else {
+      if((millis()-startTime[0]) > timeToStart[0]) {
+        frog[0] = random(0,5);
+        digitalWrite(led[frog[0]],HIGH);
+        timeAlive[0] = millis();
+        setTime[0] = false;
+      }
+    }
   }
   else {
     int timetmp = millis()-timeAlive[0];
@@ -86,10 +97,18 @@ void loop () {
   }
   
   if(setTime[1]) {
-    frog[1] = random(0,5);
-    digitalWrite(led[frog[1]],HIGH);
-    timeAlive[1] = millis();
-    setTime[1] = false;
+    if(setStartTime[1]) {
+      startTime[1] = millis();
+      setStartTime[1] = false;
+    }
+    else {
+      if((millis()-startTime[1]) > timeToStart[1]) {
+        frog[1] = random(0,5);
+        digitalWrite(led[frog[1]],HIGH);
+        timeAlive[1] = millis();
+        setTime[1] = false;
+      }
+    }
   }
   else {
     int timetmp = millis()-timeAlive[1];
@@ -103,10 +122,18 @@ void loop () {
   }
   
   if(setTime[2]) {
-    frog[2] = random(0,5);
-    digitalWrite(led[frog[2]],HIGH);
-    timeAlive[2] = millis();
-    setTime[2] = false;
+    if(setStartTime[2]) {
+      startTime[2] = millis();
+      setStartTime[2] = false;
+    }
+    else {
+      if((millis()-startTime[2]) > timeToStart[2]) {
+        frog[2] = random(0,5);
+        digitalWrite(led[frog[2]],HIGH);
+        timeAlive[2] = millis();
+        setTime[2] = false;
+      }
+    }
   }
   else {
     int timetmp = millis()-timeAlive[2];
