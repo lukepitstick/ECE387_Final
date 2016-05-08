@@ -89,7 +89,14 @@ void loop () {
       if ((millis() - frogTime[0]) > startDelay[0]) {
         startDelay[0] = ((timeOn*2)/3);
         setStartDelay[0] = true;
-        frog[0] = random(0, 5);
+        //prevents double assign
+        while(true) {
+          int r = random(0,5);
+          if((frog[1] != r) & (frog[2] != r)){
+            frog[0] = r;
+            break;
+          }
+        }
         digitalWrite(led[frog[0]], HIGH);
         timeAlive[0] = millis();
         setFrogTime[0] = false;
@@ -118,7 +125,13 @@ void loop () {
       if ((millis() - frogTime[1]) > startDelay[1]) {
         setStartDelay[1] = true;
         startDelay[1] = ((timeOn*2)/3);
-        frog[1] = random(0, 5);
+        while(true) {
+          int r = random(0,5);
+          if((frog[0] != r) & (frog[2] != r)){
+            frog[1] = r;
+            break;
+          }
+        }
         digitalWrite(led[frog[1]], HIGH);
         timeAlive[1] = millis();
         setFrogTime[1] = false;
@@ -146,7 +159,13 @@ void loop () {
       if ((millis() - frogTime[2]) > startDelay[2]) {
         setStartDelay[2] = true;
         startDelay[2] = ((timeOn*2)/3);
-        frog[2] = random(0, 5);
+        while(true) {
+          int r = random(0,5);
+          if((frog[0] != r) & (frog[1] != r)){
+            frog[2] = r;
+            break;
+          }
+        }
         digitalWrite(led[frog[2]], HIGH);
         timeAlive[2] = millis();
         setFrogTime[2] = false;
