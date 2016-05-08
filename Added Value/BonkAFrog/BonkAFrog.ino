@@ -18,7 +18,7 @@ int highscore = 0;
 int score = 0;
 int missed = 0;
 
-int startDelay[] = {timeOn*(2 / 3), timeOn*(6 / 3), timeOn*(8 / 3)};
+int startDelay[] = {((timeOn*2)/3), ((timeOn*6)/3), ((timeOn*8)/3)};
 int frogTime[] = {0, 0, 0};
 int timeAlive[] = {0, 0, 0};
 int frog[] = { -1, -1, -1};
@@ -87,7 +87,7 @@ void loop () {
     else {
       //turn on the frog
       if ((millis() - frogTime[0]) > startDelay[0]) {
-        startDelay[0] = timeOn * (2 / 3);
+        startDelay[0] = ((timeOn*2)/3);
         setStartDelay[0] = true;
         frog[0] = random(0, 5);
         digitalWrite(led[frog[0]], HIGH);
@@ -117,7 +117,7 @@ void loop () {
     else {
       if ((millis() - frogTime[1]) > startDelay[1]) {
         setStartDelay[1] = true;
-        startDelay[1] = timeOn * (2 / 3);
+        startDelay[1] = ((timeOn*2)/3);
         frog[1] = random(0, 5);
         digitalWrite(led[frog[1]], HIGH);
         timeAlive[1] = millis();
@@ -145,7 +145,7 @@ void loop () {
     else {
       if ((millis() - frogTime[2]) > startDelay[2]) {
         setStartDelay[2] = true;
-        startDelay[2] = timeOn * (2 / 3);
+        startDelay[2] = ((timeOn*2)/3);
         frog[2] = random(0, 5);
         digitalWrite(led[frog[2]], HIGH);
         timeAlive[2] = millis();
@@ -213,9 +213,9 @@ void gameover(boolean showScore, boolean showHigh) {
   //reset all variables and states
   boolean skipHigh = false;
   timeOn = 3000;
-  startDelay[0] = timeOn * (2 / 3);
-  startDelay[1] = timeOn * (6 / 3);
-  startDelay[2] = timeOn * (8 / 3);
+  startDelay[0] = ((timeOn*2)/3);
+  startDelay[1] = ((timeOn*6)/3);
+  startDelay[2] = ((timeOn*8)/3);
   setStartDelay[0] = true;
   setStartDelay[1] = true;
   setStartDelay[2] = true;
