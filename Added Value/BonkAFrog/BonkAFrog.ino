@@ -19,8 +19,8 @@ int score = 0;
 int missed = 0;
 
 int startDelay[] = {((timeOn*2)/3), ((timeOn*6)/3), ((timeOn*8)/3)};
-int frogTime[] = {0, 0, 0};
-int timeAlive[] = {0, 0, 0};
+unsigned long frogTime[] = {0, 0, 0};
+unsigned long timeAlive[] = {0, 0, 0};
 int frog[] = { -1, -1, -1};
 
 boolean setStartDelay[] = {true, true, true};
