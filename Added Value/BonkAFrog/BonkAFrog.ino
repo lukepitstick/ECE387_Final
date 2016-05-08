@@ -222,6 +222,15 @@ void gameover(boolean showScore, boolean showHigh) {
   setFrogTime[0] = true;
   setFrogTime[1] = true;
   setFrogTime[2] = true;
+  frogTime[0] = 0;
+  frogTime[1] = 0;
+  frogTime[2] = 0;
+  timeAlive[0] = 0;
+  timeAlive[1] = 0;
+  timeAlive[2] = 0;
+  frog[0] = -1;
+  frog[1] = -1;
+  frog[2] = -1;
   
   missed = 0;
   if (showScore) {
